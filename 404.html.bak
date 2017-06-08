@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,15 +25,15 @@
         }
     </style>
 </head>
-
-<body>
-<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homePageUrl="https://songdanlee.github.io/" homePageName="回到主页"></script>
+<body onload="redirect();">
+      <div id="gg">
+       <iframe   class="gg" scrolling='no' frameborder='0' src='https://yibo.iyiyun.com/Home/Distribute/ad404/key/1122458' width='654' height='470' style='display:block;'>
+    </iframe>
+    </div>
 <div class="whole">
     <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496920259704&di=b7424a94b9ad47fda238e9c8410d0440&imgtype=0&src=http%3A%2F%2Fwww.wallcoo.com%2Fcartoon%2Fda_design_10_1600%2Fwallpapers%2F1680x1050%2FLike_the_wind_by_webby85.jpg">
+</div>
 
 </body>
-
-
-
 
 </html>
