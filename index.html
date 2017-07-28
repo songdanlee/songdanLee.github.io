@@ -329,6 +329,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常吐槽/" itemprop="url" rel="index">
+                    <span itemprop="name">日常吐槽</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -354,277 +376,14 @@
 
       
         
-          
-            <h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><p>Time Limit: 1000/1000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others)<br></p>
-<p>Problem Description<br><br>Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数，它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。</p>
-<p>Input<br><br>输入含有一些四位正整数，如果为0，则输入结束。</p>
-<p>Output<br><br>若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。</p>
-<p>Sample Input<br><br>2992<br><br>1234<br><br>0<br></p>
-<p>Sample Output<br><br>2992 is a Sky Number.<br><br>1234 is not a Sky Number.<br></p>
-<pre><code>#include&lt;stdio.h&gt;
-
-int change(int n,int x){
-int sum=0;
-
-while(n){
-    sum+=n%x;
-    n/=x;
-}
-return sum;
-}
-
-int main(){
-int n;
-while(scanf(&quot;%d&quot;,&amp;n)&amp;&amp;n){
-
-int s1=    change(n,10);
-int s2= change(n,16);    
-int s3= change(n,12);
-
-if(s1==s2&amp;&amp;s1==s3)
-printf(&quot;%d is a Sky Number.\n&quot;,n);
-else
-printf(&quot;%d is not a Sky Number.\n&quot;,n);
-
-}
-}
-</code></pre><h1 id="Encoding"><a href="#Encoding" class="headerlink" title="Encoding"></a>Encoding</h1><p>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 65536/32768 K (Java/Others)<br></p>
-<p>Problem Description<br><br>Given a string containing only ‘A’ - ‘Z’, we could encode it using the following method: </p>
-<ol>
-<li><p>Each sub-string containing k same characters should be encoded to “kX” where “X” is the only character in this sub-string.</p>
-</li>
-<li><p>If the length of the sub-string is 1, ‘1’ should be ignored.</p>
-</li>
-</ol>
-<p>Input<br><br>The first line contains an integer N (1 &lt;= N &lt;= 100) which indicates the number of test cases. The next N lines contain N strings. Each string consists of only ‘A’ - ‘Z’ and the length is less than 10000.</p>
-<p>Output<br><br>For each test case, output the encoded string in a line.</p>
-<p>Sample Input<br><br>2<br><br>ABC<br><br>ABBCCC<br></p>
-<p>Sample Output<br><br>ABC<br><br>A2B3C<br></p>
-<pre><code>#include&lt;stdio.h&gt;
-#include&lt;iostream&gt;
-#include&lt;string.h&gt;
-using namespace std;
-char str[1000];
-int main(){
-int T;
-cin&gt;&gt;T;
-
-while(T--){
-    cin&gt;&gt;str;
-    int len=strlen(str);
-
-    int t=1;
-    for(int i=0;i&lt;len;i++){
-        while(str[i]==str[i+1]){
-            i+=1;
-            t++;
-        }
-        if(t!=1)
-        {
-            printf(&quot;%d%c&quot;,t,str[i]);
-            t=1;
-        }
-        else{
-            printf(&quot;%c&quot;,str[i]);
-        }
-    }
-    printf(&quot;\n&quot;);
-  }
-}
-</code></pre><h1 id="分拆素数和"><a href="#分拆素数和" class="headerlink" title="分拆素数和"></a>分拆素数和</h1><p>Time Limit: 1000/1000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others)<br></p>
-<p>Problem Description<br><br>把一个偶数拆成两个不同素数的和，有几种拆法呢？</p>
-<p>Input<br><br>输入包含一些正的偶数，其值不会超过10000，个数不会超过500，若遇0，则结束。</p>
-<p>Output<br><br>对应每个偶数，输出其拆成不同素数的个数，每个结果占一行。</p>
-<p>Sample Input<br><br>30<br><br>26<br><br>0<br><br>Sample Output<br><br>3<br><br>2<br></p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
-
-int IsPrime(int n)
-{
-int i;
-for (i=2; i&lt;=sqrt(n); i++)
- {
-    if (n % i == 0)
-    return 0;
- }
-return 1;
-}
-
-int main()
-{
-int n, i, cnt;
-while (scanf(&quot;%d&quot;, &amp;n) &amp;&amp; n)
-{
-    cnt = 0;
-    for (i=3; i&lt;n/2; i+=2)
-    {//因为是不同的两个素数，那必定一个比n/2大，一个比n/2小
-        if (IsPrime(i) &amp;&amp; IsPrime(n-i))
-            cnt++;
-    }
-    printf(&quot;%d\n&quot;, cnt);
- }
- return 0;
-}
-</code></pre><h1 id="20岁生日"><a href="#20岁生日" class="headerlink" title="20岁生日"></a>20岁生日</h1><p>时间限制：1000 ms  |  内存限制：65535 KB<br><br>描述<br><br>路过这的20岁生日就要到了，他当然很开心，可是他突然想到一个问题，是不是每个人从出生开始，到达20岁生日时所经过的天数都是一样的呢？似乎并不全都是这样，所以他想请你帮忙计算一下他和他的几个朋友从出生到达20岁生日所经过的总天数，让他好来比较一下。<br><br>输入<br><br>一个数T，后面T行每行有一个日期，格式是YYYY-MM-DD。如我的生日是1988-03-07。<br>输出<br><br>T行，每行一个数，表示此人从出生到20岁生日所经过的天数。如果这个人没有20岁生日，就输出-1。<br>样例输入<br><br>1<br><br>1988-03-07<br><br>样例输出<br><br>7305<br></p>
-<pre><code>#include &lt;stdio.h&gt;  
-
-int main()  
-{  
-
-int year,mon,day,sum1,sum2,sum3,t,i,flag1,flag2;  
-scanf(&quot;%d&quot;,&amp;t);  
-while(t--)  
-{  
-    flag1=flag2=0;  
-    int a[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};//保存十二个月的天数，2月先用平年计算  
-    scanf(&quot;%d-%d-%d&quot;,&amp;year,&amp;mon,&amp;day);  
-            sum1=sum2=sum3=0;  
-    for(i=year+1;i&lt;year+20;i++)  
-    {  
-        if(i%4==0&amp;&amp;i%100!=0||i%400==0)  
-            sum1+=366;  
-        else  
-            sum1+=365;  
-    }//计算出生下一年到20岁那年的天数  
-    if(year%4==0&amp;&amp;year%100!=0||year%400==0)  
-        a[2]=29,flag1=1;//如果出生那年为闰年2月要修改为29天，并且标记flag1=1;  
-    for(i=mon+1;i&lt;13;i++)  
-        sum2=sum2+a[i];  
-    sum2=sum2+a[mon]-day;//计算出生那年到下一年的天数  
-    a[2]=28;  
-    if((year+20)%4==0&amp;&amp;(year+20)%100!=0||(year+20)%400==0)  
-        a[2]=29,flag2=1;//如果二十岁生日那年为闰年flag2=1;  
-    for(i=1;i&lt;mon;i++)  
-        sum3=sum3+a[i];  
-    if(flag1&amp;&amp;!flag2&amp;&amp;mon==2&amp;&amp;day==29)  
-        printf(&quot;-1\n&quot;);//如果出生那年为闰年且为2月29日， 如果year+20不是闰年，那么这个人没有20岁生日。  
-    else  
-    printf(&quot;%d\n&quot;,sum1+sum2+sum3+day);  
- }  
- return 0;  
-}          
-</code></pre><h1 id="Divisible-number"><a href="#Divisible-number" class="headerlink" title="Divisible number"></a>Divisible number</h1><p>时间限制: 1 Sec  内存限制: 128 MB<br></p>
-<p>题目描述<br><br>1, 2, 3… … N this n (0 &lt; n &lt; = 1000000000) in the number of how many Numbers can be divided exactly by positive integer b</p>
-<p>输入<br><br>Input contains multiple sets of data</p>
-<p>Each group of data is a line, each row is given two positive integer n, b.</p>
-<p>输出<br><br>Input contains multiple sets of data</p>
-<p>Each group of data is a line, each row is given two positive integer n, b.</p>
-<p>样例输入<br><br>2 1<br><br>5 3<br><br>10 4<br><br>样例输出<br><br>2<br><br>1<br><br>2<br></p>
-<pre><code>#include&lt;stdio.h&gt;
-int main()
-{
-int  n,m;
-while(scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF)
-{
-
-printf(&quot;%d\n&quot;,n/m);
-}
-return 0;
-}
-</code></pre><h1 id="Quicksum"><a href="#Quicksum" class="headerlink" title="Quicksum"></a>Quicksum</h1><p>时间限制：3000 ms  |  内存限制：65535 KB<br><br>描述<br><br>A checksum is an algorithm that scans a packet of data and returns a single number. The idea is that if the packet is changed, the checksum will also change, so checksums are often used for detecting transmission errors, validating document contents, and in many other situations where it is necessary to detect undesirable changes in data.</p>
-<p>For this problem, you will implement a checksum algorithm called Quicksum. A Quicksum packet allows only uppercase letters and spaces. It always begins and ends with an uppercase letter. Otherwise, spaces and letters can occur in any combination, including consecutive spaces.</p>
-<p>A Quicksum is the sum of the products of each character’s position in the packet times the character’s value. A space has a value of zero, while letters have a value equal to their position in the alphabet. So, A=1, B=2, etc., through Z=26. Here are example Quicksum calculations for the packets “ACM” and “MID CENTRAL”:</p>
-<p>ACM: 1<em>1  + 2</em>3 + 3*13 = 46</p>
-<p>MID CENTRAL: 1<em>13 + 2</em>9 + 3<em>4 + 4</em>0 + 5<em>3 + 6</em>5 + 7<em>14 + 8</em>20 +<br>9<em>18 + 10</em>1 + 11*12 = 650<br><br>输入<br><br>The input consists of one or more packets followed by a line containing only # that signals the end of the input. Each packet is on a line by itself, does not begin or end with a space, and contains from 1 to 300 characters.<br><br>输出<br><br>For each packet, output its Quicksum on a separate line in the output.<br><br>样例输入<br><br>ACM<br><br>MID　CENTRAL<br><br>REGIONAL　PROGRAMMING　CONTEST<br><br>ACN<br><br>A　C　M<br><br>ABC<br><br>BBC<br><br>&#35;<br><br>样例输出<br><br>46<br><br>650<br><br>4690<br><br>49<br><br>75<br><br>14<br><br>15<br></p>
-<pre><code>#include&lt;stdio.h&gt;
-#include&lt;stdlib.h&gt;
-#include&lt;string.h&gt;
-int main()
-{
-char a[999];
-while(gets(a))
-{
-    if(a[0]==&apos;#&apos;)
-        break;
-    int sum=0,s;
-   for(int i=0;i&lt;strlen(a);i++)
-   {
-       if(a[i]==&apos; &apos;)
-        s=0;
-       else
-       s=(a[i]-&apos;A&apos;+1);
-       sum=(i+1)*s+sum;
-   }
-   printf(&quot;%d\n&quot;,sum);
- }
-}    
-</code></pre><h1 id="Fibonacci-Again"><a href="#Fibonacci-Again" class="headerlink" title="Fibonacci Again!"></a>Fibonacci Again!</h1><p>时间限制：1000 ms  |  内存限制：65535 KB<br><br>描述<br><br>求第n个斐波那契数是否是一个素数,n为整数<br>f[n]=f[n-1]+f[n-2] (2<n<30) f[1]="3,f[2]=7。</br"><br>输入<br><br>输入整数m,0<m<30,输入-1表示结束输入。< br=""><br>输出<br><br>如果f[m]是素数 则输出Yes,否则输出No,<br>每行输出占一行。<br><br>样例输入<br><br>2<br><br>3<br><br>样例输出<br><br>Yes<br><br>No<br>    </m<30,输入-1表示结束输入。<></n<30)></p>
-<pre><code>#include&lt;stdio.h&gt;
-#include&lt;ctype.h&gt;
-#include&lt;math.h&gt;`
-
-int judge_prime(int n)
-{
-int i;
-for(i=2;i&lt;=sqrt(n);i++)
-if(n%i==0) return 0;//不是素数 
-return 1;//是素数 
-}
-
-int main()
-{
-int n;
-int a[40];
-a[1]=3;a[2]=7;
-for(int i=3;i&lt;30;i++)
-{
-a[i]=a[i-1]+a[i-2];
-//printf(&quot;%d\n&quot;,a[i]);
-}
-while(scanf(&quot;%d&quot;,&amp;n)!=EOF&amp;&amp;n!=-1)
-{
-if(judge_prime(a[n]))
-printf(&quot;Yes\n&quot;);
-else
-printf(&quot;No\n&quot;);    
-} 
-return 0;
-}
-</code></pre><p>最少拦截系统<br><br>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 65536/32768 K (Java/Others)<br></p>
-<p>Problem Description<br><br>某国为了防御敌国的导弹袭击,发展出一种导弹拦截系统.但是这种导弹拦截系统有一个缺陷:虽然它的第一发炮弹能够到达任意的高度,但是以后每一发炮弹都不能超过前一发的高度.某天,雷达捕捉到敌国的导弹来袭.由于该系统还在试用阶段,所以只有一套系统,因此有可能不能拦截所有的导弹.<br>怎么办呢?多搞几套系统呗!你说说倒蛮容易,成本呢?成本是个大问题啊.所以俺就到这里来求救了,请帮助计算一下最少需要多少套拦截系统.<br></p>
-<p>Input<br><br>输入若干组数据.每组数据包括:导弹总个数(正整数),导弹依此飞来的高度(雷达给出的高度数据是不大于30000的正整数,用空格分隔)<br></p>
-<p>Output<br><br>对应每组数据输出拦截所有导弹最少要配备多少套这种导弹拦截系统.<br></p>
-<p>Sample Input<br><br>8 389 207 155 300 299 170 158 65<br></p>
-<p>Sample Output<br><br>2<br></p>
-<p> 特殊数据<br><br>输入：8 17 16 15 16 13 12 14 12<br><br>输出：2<br></p>
-<pre><code>#include&lt;stdio.h&gt;
-
-int main(int argc,char* argv[]){
-
-int n=0;
-int a[10000];
-
-while(scanf(&quot;%d&quot;,&amp;n) != EOF){
-  int h,k=0;
-  for(int i =0;i&lt;n;i++)
-  scanf(&quot;%d&quot;,&amp;a[i]);
-
-  for(int i =0;i&lt;n;i++){
-
-  if(a[i] != -1){
-
-    h =a[i];
-  k++;    
-
-
-    for(int j=i+1;j&lt;n;j++)
-        if(a[j] != -1&amp;&amp;h&gt;=a[j])
-        {
-
-        h = a[j];
-        a[j] =-1;
-        }
-   }
-
-  }     
-  printf(&quot;%d\n&quot;,k); 
-  }    
-
- return 0;
-
-} 
-</code></pre>
-          
+          <p>XYNU第二周比赛题解<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/28/XYNU第二次比赛/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -974,7 +733,7 @@ while(scanf(&quot;%d&quot;,&amp;n) != EOF){
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
